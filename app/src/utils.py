@@ -1,6 +1,7 @@
 import streamlit as st
 import json, os, lzma, pickle, collections, io
 import pandas as pd
+from src.streamlit_gtag import st_gtag
 
 base_path = "app/files/2024-06-24_pkl_files"
 
@@ -141,3 +142,37 @@ def _st_justify_markdown_html(text: str, location = None):
             unsafe_allow_html = True
         )
     return
+
+def cookie_banner():
+    # Initialize session state
+    if 'cookie' not in st.session_state:
+        st.session_state['cookie'] = 'false'
+    if st.session_state['cookie'] == 'false':
+        placeholder = st.empty()
+
+        # Define the cookie banner layout
+        col0, col1, col2, col3, col4 = placeholder.columns([2, 3, 1, 1, 3])
+
+        col1.write("To understand our audience of this app, we ask for your consent to use analytics cookies. If you decline, your visit will not be tracked.")
+        col4.write('[View cookie policy](https://www.malariagen.net/privacy-policy/)')
+        # If "Accept" button is clicked, set session state to 'true'
+        if col2.button("Accept", type='primary'):
+            st.session_state['cookie'] = 'true'
+            st_gtag(
+                key="gtag_send_event_b",
+                id="G-BRMES1FB7B",
+                event_name="send_event_button",
+                params={
+                    "event_category": "test_category_b",
+                    "event_label": "test_label_b",
+                    "value": 97,
+                }
+            )
+
+        # If "Reject" button is clicked, set session state to 'true'
+        if col3.button("Reject"):
+            st.session_state['cookie'] = 'true'
+
+        # If either "Accept" or "Reject" button is clicked, remove the cookie banner
+        if st.session_state['cookie'] == 'true':
+            placeholder.empty()

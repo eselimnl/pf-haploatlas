@@ -1,7 +1,7 @@
 import streamlit as st
 from base64 import b64encode
 
-from src.utils import _cache_load_utility_mappers, _cache_load_pf7_metadata, _st_justify_markdown_html
+from src.utils import _cache_load_utility_mappers, _cache_load_pf7_metadata, _st_justify_markdown_html, cookie_banner
 
 
 
@@ -13,7 +13,7 @@ def set_up_interface():
         layout = "centered",
         initial_sidebar_state = "expanded"
     )
-    
+    cookie_banner()
     st.markdown(
         """
         <div style="text-align:center; font-size:4em; font-weight:bold;">
