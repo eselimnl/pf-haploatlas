@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
-from streamlit_plotly_events import plotly_events
+from streamlit_plotly_events2 import plotly_events
 
 from src.utils import cache_load_population_colours, _cache_load_utility_mappers, generate_download_buttons, _st_justify_markdown_html
 
