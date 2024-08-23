@@ -1,7 +1,11 @@
 import streamlit as st
 import json, os, lzma, pickle, collections, io
 import pandas as pd
-from src.streamlit_gtag import st_gtag
+import sys
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
+
+from streamlit_gtag import st_gtag
 
 base_path = "app/files/2024-06-24_pkl_files"
 

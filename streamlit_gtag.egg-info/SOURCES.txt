@@ -1,0 +1,10 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+streamlit_gtag/__init__.py
+streamlit_gtag.egg-info/PKG-INFO
+streamlit_gtag.egg-info/SOURCES.txt
+streamlit_gtag.egg-info/dependency_links.txt
+streamlit_gtag.egg-info/requires.txt
+streamlit_gtag.egg-info/top_level.txt
